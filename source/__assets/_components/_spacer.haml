@@ -1,0 +1,14 @@
+:ruby
+  defaults = {
+    tag: :div,
+    style_obj: {}.tap { |style_obj|
+      style_obj[:height] = options[:px_height] ? "#{options[:px_height]}px" : 'auto'
+    },
+    attrs: {}.tap { |attrs|
+      attrs[:height] = options.delete :px_height if options[:px_height]
+    }
+  }
+
+
+= component :element,
+            options:   merge(defaults, options)

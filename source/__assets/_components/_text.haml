@@ -1,0 +1,15 @@
+:ruby
+  options[:tag] ||= :p
+
+  defaults = {
+    style_obj: {  font_family: 'Tahoma, sans-serif',
+                  color:       'black',
+                  font_size:   '12px',
+                  line_height: '1.1',
+                  margin:      '0',
+                  padding:     '0' },
+    attrs: {}
+  }
+
+= component :element,
+            options: merge(defaults, options)

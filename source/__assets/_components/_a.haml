@@ -1,0 +1,11 @@
+:ruby
+
+  defaults = {
+    tag: :a,
+    style_obj: { text_decoration: 'none' },
+    attrs: { border: 0,
+             href:   options.delete(:href) }
+  }
+
+= component :element,
+            options: merge(defaults, options)

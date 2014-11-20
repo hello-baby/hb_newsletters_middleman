@@ -1,0 +1,13 @@
+:ruby
+  options[:tag]       ||= :div
+  options[:style_obj] ||= {}
+  options[:attrs]     ||= {}
+
+  default_attrs = {
+    style: style_string(options[:style_obj])
+  }
+
+  attrs = default_attrs.merge options[:attrs]
+
+= content_tag options[:tag], attrs do
+  = options[:yield]

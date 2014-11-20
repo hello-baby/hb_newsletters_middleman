@@ -1,0 +1,11 @@
+:ruby
+
+  defaults = {
+    tag: :h1,
+    style_obj: { color:          '#232323',
+                 font_size:      '20px',
+                 margin_bottom: '0.5em' }
+  }
+
+= component :text,
+            options: merge(defaults, options)

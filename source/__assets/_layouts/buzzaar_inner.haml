@@ -1,0 +1,57 @@
+:ruby
+  padding = '44px'
+
+%div{style: style_string( background_color: 'white',
+                          padding_top: padding )}
+
+  = component :table, style_obj: { width:            '600px',
+                                   margin_left:      'auto',
+                                   margin_right:     'auto' } do
+
+    %tr
+
+      -# Sidebar
+      %td{ style: style_string( width:          '163px',
+                                padding_left:   padding,
+                                padding_right:  '32px',
+                                text_align:     'center',
+                                vertical_align: 'top')}
+        = yield_content :sidebar
+
+      -# Main
+      %td{ style: style_string( padding_right: padding,
+                                vertical_align: 'top' )}
+
+        = component :img,
+                    url:       'privet.gif',
+                    px_width:  '150px',
+                    px_height: '43px'
+
+
+
+        = component :spacer,
+                    style_obj: { height: '17px' }
+
+        = yield
+
+
+    %tr
+
+      -# Sidebar footer
+      %td{ style: style_string( padding_bottom: '18px',
+                                padding_left:   '25px',
+                                vertical_align: 'bottom',
+                                text_align:     'left' )}
+
+        = component :a, href: 'http://www.buzzaar.eu/' do
+          = component :img,
+                      px_width:  84,
+                      px_height: 38,
+                      url: 'buzzaar_bottom.gif'
+
+      -# Main footer
+      %td{ style: style_string( padding_bottom: '18px',
+                                padding_right:   '25px',
+                                vertical_align: 'bottom',
+                                text_align:     'left' )}
+        = yield_content :footer

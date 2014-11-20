@@ -1,0 +1,10 @@
+:ruby
+  defaults = { style_obj: { width: '100%' },
+               attrs:     { cellpadding: 0,
+                            cellspacing: 0,
+                            border:      0 }}
+
+
+= component :element,
+            tag:       :table,
+            options:   merge(defaults, options)

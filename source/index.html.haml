@@ -1,0 +1,8 @@
+!!!
+%html
+  %head
+  %body
+    %ul
+      - pages.each do |resource|
+        %li
+          = link_to resource.path, resource.url
