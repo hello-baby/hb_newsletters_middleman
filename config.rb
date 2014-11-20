@@ -1,4 +1,4 @@
-@images_path = 'http://hello-baby.github.io/newsletters-middleman/__assets/images/'
+@images_path = 'http://hello-baby.github.io/newsletters_middleman/__assets/images/'
 
 
 # Reload the browser automatically whenever files change
