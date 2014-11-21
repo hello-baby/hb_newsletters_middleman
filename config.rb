@@ -1,10 +1,4 @@
-@images_path = 'http://hello-baby.github.io/newsletters_middleman/__assets/images/'
-
-
-# Reload the browser automatically whenever files change
-configure :development do
-  activate :livereload
-end
+@images_path = 'http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/'
 
 
 # Configuring paths
