@@ -64,7 +64,7 @@
 
             %td
               = component :img,
-                          url: 'ghost.gif',
+                          url: 'pers.gif',
                           px_width: 62,
                           px_height: 46
 
@@ -105,13 +105,16 @@
                     style_obj: { color:          '#f763b4',
                                  text_transform: :uppercase,
                                  font_weight:    :bold,
-                                 font_size:      '9px',
+                                 font_size:      '8px',
                                  line_height:    '1.4' } do
           вы получили это письмо, потому что зарегистрированы на сайте buzzaar
 
           - if current_page.data.unsubscribe_link
             %br
             = component :a,
-                        href:      current_page.data.unsubscribe_link,
-                        style_obj: { color: '#f763b4'} do
-              Отписаться от рассылки
+                        href:      current_page.data.unsubscribe_link do
+              = component :element,
+                          tag: :span,
+                          style_obj: { color: '#f763b4',
+                                       text_decoration: 'underline'} do
+                Отписаться от рассылки
