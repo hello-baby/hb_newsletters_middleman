@@ -9,5 +9,4 @@
 
   attrs = default_attrs.merge options[:attrs]
 
-= content_tag options[:tag], attrs do
-  = options[:yield]
+= content_tag options[:tag], options[:yield], attrs

@@ -1,4 +1,4 @@
-def style_string(styles_hash)
+def style_string(styles_hash = {})
   styles_hash
     .delete_if { |k, v| v == nil}
     .map { |key, value|

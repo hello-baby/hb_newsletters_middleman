@@ -1,3 +1,7 @@
+;;;
+"foo": "bar"
+;;;
+
 !!!
 %html
   %head
@@ -5,4 +9,4 @@
     %ul
       - pages.each do |resource|
         %li
-          = link_to resource.path, resource.url
+          = link_to resource.data.name, resource.url

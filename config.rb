@@ -45,11 +45,3 @@ set :file_watcher_ignore,[
 # Use relative URLs
 set :relative_links, true
 activate :relative_assets
-
-
-ready do
-  pages.each do |page|
-    new_path = page.path.gsub(/\.html$/, "-buzzaar.html")
-    proxy new_path, page.path, layout: :buzzaar
-  end
-end

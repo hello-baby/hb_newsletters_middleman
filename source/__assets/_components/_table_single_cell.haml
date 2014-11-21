@@ -1,0 +1,15 @@
+:ruby
+
+  td_style = style_string (
+    {}.tap { |style_obj|
+      style_obj[:vertical_align] = options[:valign] ? options.delete(:valign) : 'middle'
+      style_obj[:text_align]     = options[:halign] ? options.delete(:halign) : 'center'
+    }
+  )
+
+
+
+= component :table, options: options do
+  %tr
+    %td{ style: td_style }
+      = options[:yield]

@@ -1,0 +1,82 @@
+;;;
+"name":             "Buzzaar Little Devils 3: итоги, всем участникам",
+"layout":           "buzzaar",
+"header_text":      "спасибо",
+"unsubscribe_link": "asdf"
+;;;
+
+- content_for :sidebar do
+
+  = component :img,
+              px_width: 129,
+              px_height: 185,
+              url: 'winner.gif'
+
+
+
+- content_for :footer do
+
+  = component :img,
+              url: 'dots.gif',
+              style_obj: { width: '100%' }
+
+  = component :spacer,
+              style_obj: { height: '5px' }
+
+  = component :img,
+              url: 'do_novih_akciy.gif',
+              px_width: 242,
+              px_height: 28
+
+= wrap_layout :buzzaar_inner do
+
+  = component :p  do
+    Благодарим вас за участие в конкурсе
+    %br
+
+    = component :a,
+                href: 'http://buzzaar.eu/ru/hellobaby/' do
+
+      = component :text,
+                tag: :span,
+                style_obj: { font_weight:     'bold',
+                             text_decoration: 'underline',
+                             color:           'black' },
+                yield: 'Stories of little devils'
+    от
+
+
+
+    = component :a,
+                href: 'http://hell-o-baby.com/' do
+
+      = component :text,
+                tag: :span,
+                style_obj: { font_weight:     'bold',
+                             text_decoration: 'underline',
+                             color:           'black' },
+                yield:'Hell’o Baby!'
+
+  = component :spacer,
+              style_obj: { height: '17px' }
+
+  = component :text,
+                style_obj: { font_size: '17px'} do
+    Вам не удалось победить в конкурсе,
+    %br
+    но вы получаете приз участника!
+
+  = component :spacer,
+              style_obj: { height: '17px' }
+
+  = component :img,
+              url: 'present_small.gif',
+              style_obj: { width: '100%' }
+
+  = component :spacer,
+            style_obj: { height: '50px' }
+
+  = component :p, style_obj: { color: '#2a2929' } do
+    PRO будет применен к каждому малышу в аккаунте
+    %br
+    с e-mail, который вы указали в отчете.

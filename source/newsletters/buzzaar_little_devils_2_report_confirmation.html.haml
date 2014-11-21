@@ -1,0 +1,79 @@
+;;;
+"name":             "Buzzaar Little Devils 2: после заполнения отчета",
+"layout":           "buzzaar",
+"header_text":      "получен отчет",
+"unsubscribe_link": "asdf"
+;;;
+
+- content_for :sidebar do
+
+  = component :img,
+              style_obj: { width: '100%' },
+              url: 'report.gif'
+
+
+
+- content_for :footer do
+
+  = component :img,
+              url: 'dots.gif',
+              style_obj: { width: '100%' }
+
+  = component :spacer,
+              style_obj: { height: '5px' }
+
+  = component :img,
+                url: 'emotions.gif',
+                px_width: 234,
+                px_height: 28
+
+= wrap_layout :buzzaar_inner do
+
+  = component :p  do
+    Благодарим вас за участие в конкурсе
+    %br
+
+    = component :a,
+                href: 'http://buzzaar.eu/ru/hellobaby/' do
+
+      = component :text,
+                tag: :span,
+                style_obj: { font_weight:     'bold',
+                             text_decoration: 'underline',
+                             color:           'black' },
+                yield: 'Stories of little devils'
+    от
+
+
+
+    = component :a,
+                href: 'http://hell-o-baby.com/' do
+
+      = component :text,
+                tag: :span,
+                style_obj: { font_weight:     'bold',
+                             text_decoration: 'underline',
+                             color:           'black' },
+                yield:'Hell’o Baby!'
+
+  = component :spacer,
+              style_obj: { height: '17px' }
+
+  = component :text,
+                style_obj: { font_size: '17px'} do
+    Мы получили ваш отчет. Наберитесь терпения – скоро станут известны результаты конкурса!
+
+  = component :spacer,
+              style_obj: { height: '17px' }
+
+  = component :img,
+              url: 'present_all.gif',
+              style_obj: { width: '100%' }
+
+  = component :spacer,
+            style_obj: { height: '50px' }
+
+  = component :p, style_obj: { color: '#2a2929' } do
+    Напомним, каждого участника ждет PRO-аккаунт
+    %br
+    на 3 месяца, а 20 победителей получат PRO на целый год. Расскажите об акции своим друзьям, чтобы собрать больше лайков для своего поста!

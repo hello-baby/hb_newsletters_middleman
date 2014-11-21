@@ -1,0 +1,117 @@
+!!!
+%html{ style: style_string( margin: 0, padding: 0 ) }
+  %head
+  %body{ style: style_string( margin: 0, padding: 0 ) }
+
+    %div{ style: style_string( background_color: '#da107e',
+                               padding:          '50px 10px' ) }
+
+      -# Main container
+      = component :table_single_cell,
+                  style_obj: { width: '600px',
+                               margin: '0 auto' } do
+
+        -# Header
+        = component :table do
+          %tr
+            %td{ style: style_string( text_align: :left ) }
+
+              = component :img,
+                          px_width: 159,
+                          px_height: 38,
+                          url: 'buzzaar_top.gif'
+
+            %td{ style: style_string( text_align: :right ) }
+
+              = component :text,
+                          style_obj: { color: :white,
+                                       font_size: '18px' } do
+                = current_page.data.header_text
+
+        = component :spacer, px_height: 10
+
+        = yield
+
+        = component :spacer, px_height: 10
+
+        -# Footer
+        = component :table, style_obj: { table_layout: :fixed } do
+
+          %tr
+
+            %td{ style: style_string( text_align: :left ) }
+
+              = component :text,
+                          style_obj: { color: :white,
+                                       font_size: '12px' } do
+
+                ©
+                %strong Buzzaar, LLC
+
+                %br
+
+                = component :a,
+                            href:      'http://buzzaar.eu/',
+                            style_obj: { color: :white } do
+                  www.buzzaar.eu
+
+                %br
+
+                = component :a,
+                            href:      'mailto:varvara@buzzaar.eu',
+                            style_obj: { color: :white } do
+                  varvara@buzzaar.eu
+
+            %td
+              = component :img,
+                          url: 'ghost.gif',
+                          px_width: 62,
+                          px_height: 46
+
+            %td{ style: style_string( text_align: :right ) }
+
+              = component :a, href: 'https://www.facebook.com/buzzaar' do
+                = component :img,
+                            url: 'fb.gif',
+                            px_width: 24,
+                            px_height: 24
+
+
+              = component :spacer,
+                          px_width: 10,
+                          style_obj: { display: 'inline-block' }
+
+              = component :a, href: 'https://vk.com/buzzaar1' do
+                = component :img,
+                            url: 'vk.gif',
+                            px_width: 24,
+                            px_height: 24
+
+
+              = component :spacer,
+                          px_width: 10,
+                          style_obj: { display: 'inline-block' }
+
+              = component :a, href: 'https://twitter.com/buzzaar_russia' do
+                = component :img,
+                            url: 'twi.gif',
+                            px_width: 24,
+                            px_height: 24
+
+
+        = component :spacer, px_height: 10
+
+        = component :text,
+                    style_obj: { color:          '#f763b4',
+                                 text_transform: :uppercase,
+                                 font_weight:    :bold,
+                                 font_size:      '9px',
+                                 line_height:    '1.4' } do
+          вы получили это письмо, потому что зарегистрированы на сайте buzzaar
+
+          - if current_page.data.unsubscribe_link
+            %br
+            = component :a,
+                        href:      current_page.data.unsubscribe_link,
+                        style_obj: { color: '#f763b4'} do
+              Отписаться от рассылки
