@@ -1,0 +1,15 @@
+:ruby
+
+  td_defaults = {
+    style_obj: {
+      vertical_align: options[:valign] ? options.delete(:valign) : 'middle',
+      text_align:     options[:halign] ? options.delete(:halign) : 'center'
+    }
+  }
+
+
+
+%tr
+  = component :element, tag:     :td,
+                        options: merge(td_defaults, options) do
+    = options[:yield]

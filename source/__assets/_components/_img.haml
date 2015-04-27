@@ -1,8 +1,8 @@
 :ruby
   defaults = {
     style_obj: {}.tap { |style_obj|
-      style_obj[:width]  = "#{options[:px_width]}px"  if options[:px_width]
-      style_obj[:height] = options[:px_height] ? "#{options[:px_height]}px" : 'auto'
+      style_obj[:width]     = "#{options[:px_width]}px"  if options[:px_width]
+      style_obj[:height]    = options[:px_height] ? "#{options[:px_height]}px" : 'auto'
     },
     attrs: {}.tap { |attrs|
       attrs[:width]  = options.delete :px_width  if options[:px_width]

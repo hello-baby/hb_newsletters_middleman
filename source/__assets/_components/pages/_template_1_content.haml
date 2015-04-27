@@ -1,0 +1,121 @@
+- padding = '58px'
+
+-# Root container
+= component :element, tag: :div,
+                        style_obj: {  width:     '579px',
+                                      max_width: '100%'} do
+
+  -# Main table
+  = component :table,
+                style_obj: { width:            '100%' } do
+
+
+    -# Top cell with hero image
+    {% if images.hero %}
+    
+    = component :row_cell, attrs:     { id: 'topcell' },
+                             style_obj: { padding_right: padding } do
+
+
+      = component :img_auto, src: "{{images.hero.url}}",
+                                    style_obj: { max_width: '100%',
+                                                 height:    'auto',
+                                                 display:   'block' }
+    
+    {% endif %}
+
+
+    -# Main content cell
+    = component :row_cell,  attrs:     { id: 'maincell' },
+                            halign:    :left,
+                            style_obj: {  padding_top:   '54px',
+                                          padding_left:  padding,
+                                          padding_right: padding } do
+      
+      
+      {% if images.avatar.url %}
+
+
+      = component :img_auto, src:      '{{ images.avatar.url }}',
+                             px_width: 130,
+                             style_obj: { border:        '5px solid #E8E8E8',
+                                          border_radius: '50%',
+                                          margin_bottom: '27px' }
+      
+      
+      {% elsif images.header.url %}
+
+
+      = component :img_auto, src:       '{{ images.header.url }}',
+                             attrs:     { width: '{{ images.header.width }}'},
+                             style_obj: { margin_bottom: '27px',
+                                          width:         '{{ images.header.width }}px' }
+      
+      {% endif %}
+
+      -# Title
+      = component :text, tag:       :h1,
+                           yield:     "{{ texts.title }}",
+                           style_obj: { color:         '#3c3c3c',
+                                        font_size:     '45px',
+                                        margin_bottom: '20px',
+                                        font_weight:   'normal' }
+
+
+      -# Content blocks
+      {% for text in texts.blocks %}
+      
+      -# Text
+      = component :text2, yield:     '{{ text }}',
+                          style_obj: { margin_bottom: '15px' }
+
+
+      -# Image
+      {% if images.blocks and images.blocks[forloop.index0] %}
+      = component :img_auto, src:      '{{ images.blocks[forloop.index0].url }}',
+                             px_width: '{{ images.blocks[forloop.index0].width }}',
+                             style_obj: { margin_bottom: '35px' }
+      {% endif %}
+
+      {% endfor %}
+
+
+      -# Main link
+      {% if texts.link %}
+      %p{ style: style_string(margin_bottom:   '50px') }
+        = component :a, href:      '{{ link_url }}',
+                          yield:     "{{ texts.link }} →",
+                          style_obj: { font_size:       '24.88px',
+                                       text_decoration: 'underline',
+                                       color:           '#3c3c3c' }
+      {% endif %}
+
+      -# Hell'o Baby logo
+      %p{ style: style_string(margin_bottom:   '25px') }
+        = component :a, href: 'http://hell-o-baby.com' do
+          = component :img_auto, src:      custom_image_url('logo2.png'),
+                                   px_width: image_width('logo2.png') / 2,
+                                   style_obj: { }
+
+      -# Hell'o Baby plaintext link
+      %p{ style: style_string(margin_bottom:   '22px',
+                              line_height:     '10px') }
+        = component :text2, tag:       :span,
+                            style_obj: { font_size: '11px',
+                            color:     '#3c3c3c' } do 
+          ©
+          %strong Hello Baby LTD
+        
+        %br
+
+        = component :a, href:      'http://hell-o-baby.com',
+                          yield:     'hell-o-baby.com',
+                          style_obj: { font_size: '11px',
+                                       color:     '#3c3c3c' }
+
+      -# Facebook link
+      %p
+        = component :a, href: 'https://www.facebook.com/hellobabyalbum' do
+          = component :img_auto, src:      custom_image_url('facebook.png'),
+                                   px_width: image_width('facebook.png') / 2,
+                                   style_obj: { }

@@ -2,11 +2,25 @@
 "foo": "bar"
 ;;;
 
-!!!
-%html
-  %head
-  %body
-    %ul
-      - pages.each do |resource|
-        %li
-          = link_to resource.data.name, resource.url
+
+- content_for :head do
+  :css
+    body {
+      padding: 20px !important;
+    }
+    
+    h2:not(:first-child) {
+      margin-top:    40px !important;
+    }
+    
+    h2:not(:last-child) {
+      margin-bottom: 15px !important;
+    }
+
+
+- pages.group_by { |p| p.data.group }.each_pair do |title, section_pages|
+  %h2= title
+  %ul
+    - section_pages.each do |resource|
+      %li
+        = link_to resource.data.name, resource.url

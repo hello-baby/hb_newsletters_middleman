@@ -1,0 +1,17 @@
+;;;
+"name":             "Приглашение нового пользователя (аватар)",
+"group":            "Шаблон бэкенда"
+;;;
+
+= component 'pages/template_1',
+  content: { texts: {  title: 'New baby.',
+                       link:  'Register and get invite',
+                       blocks: [ 'Margarita has invited you to be Maximilian ‘s father on Hell’o Baby. Now you can add new memories of baby together!',
+                                 'Hell’o Baby is the best place to collect baby’s big moments. Add content, use key moments, baby services and never lose baby impressions!' ]},
+             images: { avatar: { url:   custom_image_url('baby_avatar.jpg') },
+                       blocks: [ { url:   custom_image_url('happy_croco.png'), 
+                                   width: image_width('happy_croco.png') / 2 },
+                                 { url:   custom_image_url('post_types.png'), 
+                                   width: image_width('post_types.png') / 2} ] },
+             link_url: 'http://hell-o-baby.com/foo?bar=baz' }
+

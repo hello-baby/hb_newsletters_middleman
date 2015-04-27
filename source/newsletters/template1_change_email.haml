@@ -1,0 +1,13 @@
+;;;
+"name":             "Запрос нового имэйла (маленькая картинка)",
+"group":            "Шаблон бэкенда"
+;;;
+
+= component 'pages/template_1',
+  content: { texts: {  title: 'New e-mail.',
+                       link:  'Confirm this e-mail',
+                       blocks: [ "You have changed your e-mail on Hell'o Baby. To confirm new e-mail, follow the link below. If you have not changed e-mail, just ignore this letter." ]},
+             images: { header: { url:   custom_image_url('dog_email.png'), 
+                                 width: image_width('dog_email.png') / 2 }},
+             link_url: 'http://hell-o-baby.com/foo?bar=baz' }
+             

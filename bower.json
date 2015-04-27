@@ -1,0 +1,7 @@
+{
+  "name": "hb_newsletters_middleman",
+  "dependencies": {
+    "jquery": "^2.1.3",
+    "liquid.js": "git@github.com:mattmccray/liquid.js#v1.3.0"
+  }
+}

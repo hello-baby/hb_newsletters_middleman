@@ -7,3 +7,18 @@ def custom_image_url(path)
   end
 
 end
+
+def image_width(path)
+  
+  if !path.include? '://'
+    path = 'source/__assets/images/' + path
+  end
+  
+  sizes = FastImage.size(path)
+  
+  if sizes
+    sizes.first
+  else
+    0
+  end
+end

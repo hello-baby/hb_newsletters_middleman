@@ -1,0 +1,10 @@
+:ruby
+  defaults = {
+    style_obj: {
+      width:     options[:px_width] ? "#{options[:px_width]}px" : 'auto',
+      height:    'auto',
+      max_width: '100%'      
+    }
+  }
+  
+= component :img, options: merge(defaults, options)

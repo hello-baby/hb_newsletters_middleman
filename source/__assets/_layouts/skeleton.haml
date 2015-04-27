@@ -1,0 +1,10 @@
+!!!
+%html{ style: style_string( margin: 0, padding: 0 ) }
+  %head
+    %title= current_page.data.name
+    %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    = yield_content :head
+    
+  %body{ style: style_string( margin: 0, padding: 0 ) }
+    = yield
+    = yield_content :foot

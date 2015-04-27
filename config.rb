@@ -15,6 +15,8 @@ dirs_hash.each_pair do |key, value|
 end
 
 
+set :layout, :skeleton
+
 # Ignoring files
 set :file_watcher_ignore,[
                           /^bin\//,
@@ -45,3 +47,10 @@ set :file_watcher_ignore,[
 # Use relative URLs
 set :relative_links, true
 activate :relative_assets
+
+activate :livereload
+
+
+sprockets.append_path File.join root, 'bower_components'
+sprockets.import_asset 'jquery/dist/jquery.min.js'
+sprockets.import_asset 'liquid.js/dist/liquid.min.js'
