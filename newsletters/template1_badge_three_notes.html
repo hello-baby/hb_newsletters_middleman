@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html style='margin: 0;padding: 0;'>
   <head>
-    <title>Регистрация (крупная картинка)</title>
+    <title>Бэдж за три заметки (маленькая картинка, без ссылки)</title>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     <style>
       @media (max-width: 400px) {
@@ -69,25 +69,15 @@
       
         result = Liquid.parse($('#liquid_body')[0].innerHTML).render({
           "texts": {
-            "title": "Hi there!",
-            "link": "Get welcome postcard",
-            "blocks": ["Welcome to the best place to keep baby’s big moments! Add content, use key moments and never lose baby impressions! Use our appor web album.", "Use specialized services: Measurements, Video stories, Stickers, Postcards, Daily snapshot and Printed albums. Enjoy your parenthood!"]
+            "title": "New badge for Harrison!",
+            "blocks": ["Maximilian made more than 3 text notes.\u003cbr\u003eSo, there is a new badge – Energizer!\u003cbr\u003e\u003cbr\u003e"]
           },
           "images": {
-            "hero": {
-              "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/welcome_to_hello_baby.png"
-            },
-            "blocks": [
-              {
-                "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/post_types.png",
-                "width": 220
-              }, {
-                "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/services.png",
-                "width": 559
-              }
-            ]
-          },
-          "link_url": "http://hell-o-baby.com/foo?bar=baz"
+            "header": {
+              "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/badge_three_notes.png",
+              "width": 163
+            }
+          }
         });
       
         $('body').append($(result));

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html style='margin: 0;padding: 0;'>
   <head>
-    <title>Регистрация (крупная картинка)</title>
+    <title>Запрос нового имэйла (маленькая картинка)</title>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     <style>
       @media (max-width: 400px) {
@@ -69,23 +69,15 @@
       
         result = Liquid.parse($('#liquid_body')[0].innerHTML).render({
           "texts": {
-            "title": "Hi there!",
-            "link": "Get welcome postcard",
-            "blocks": ["Welcome to the best place to keep baby’s big moments! Add content, use key moments and never lose baby impressions! Use our appor web album.", "Use specialized services: Measurements, Video stories, Stickers, Postcards, Daily snapshot and Printed albums. Enjoy your parenthood!"]
+            "title": "New e-mail.",
+            "link": "Confirm this e-mail",
+            "blocks": ["You have changed your e-mail on Hell'o Baby. To confirm new e-mail, follow the link below. If you have not changed e-mail, just ignore this letter."]
           },
           "images": {
-            "hero": {
-              "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/welcome_to_hello_baby.png"
-            },
-            "blocks": [
-              {
-                "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/post_types.png",
-                "width": 220
-              }, {
-                "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/services.png",
-                "width": 559
-              }
-            ]
+            "header": {
+              "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/dog_email.png",
+              "width": 175
+            }
           },
           "link_url": "http://hell-o-baby.com/foo?bar=baz"
         });

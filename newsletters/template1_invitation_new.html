@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html style='margin: 0;padding: 0;'>
   <head>
-    <title>Регистрация (крупная картинка)</title>
+    <title>Приглашение нового пользователя (аватар)</title>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     <style>
       @media (max-width: 400px) {
@@ -69,21 +69,21 @@
       
         result = Liquid.parse($('#liquid_body')[0].innerHTML).render({
           "texts": {
-            "title": "Hi there!",
-            "link": "Get welcome postcard",
-            "blocks": ["Welcome to the best place to keep baby’s big moments! Add content, use key moments and never lose baby impressions! Use our appor web album.", "Use specialized services: Measurements, Video stories, Stickers, Postcards, Daily snapshot and Printed albums. Enjoy your parenthood!"]
+            "title": "New baby.",
+            "link": "Register and get invite",
+            "blocks": ["Margarita has invited you to be Maximilian ‘s father on Hell’o Baby. Now you can add new memories of baby together!", "Hell’o Baby is the best place to collect baby’s big moments. Add content, use key moments, baby services and never lose baby impressions!"]
           },
           "images": {
-            "hero": {
-              "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/welcome_to_hello_baby.png"
+            "avatar": {
+              "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/baby_avatar.jpg"
             },
             "blocks": [
               {
+                "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/happy_croco.png",
+                "width": 95
+              }, {
                 "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/post_types.png",
                 "width": 220
-              }, {
-                "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/services.png",
-                "width": 559
               }
             ]
           },
