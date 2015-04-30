@@ -3,20 +3,21 @@
   <head>
     <title>Приглашение существующего пользователя (аватар)</title>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
-    <style>
-      @media (max-width: 400px) {
-        #topcell {
-          padding-right: 20px !important;
-        }
-        #maincell {
-          padding-left:  20px !important;
-          padding-right: 20px !important;
-        }
-      }
-    </style>
+    
   </head>
   <body style='margin: 0;padding: 0;'>
     <script id='liquid_body' type='text/liquid'>
+      <style>
+        @media (max-width: 400px) {
+          #topcell {
+            padding-right: 20px !important;
+          }
+          #maincell {
+            padding-left:  20px !important;
+            padding-right: 20px !important;
+          }
+        }
+      </style>
       <div style="width: 579px;max-width: 100%;"><table style="width: 100%;" cellpadding="0" cellspacing="0" border="0">{% if images.hero %}
       <tr>
         <td style="vertical-align: middle;text-align: center;padding-right: 58px;" id="topcell"><img style="height: auto;width: auto;max-width: 100%;display: block;" src="{{images.hero.url}}"></img>
