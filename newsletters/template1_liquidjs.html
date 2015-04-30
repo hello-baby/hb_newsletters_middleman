@@ -1,54 +1,74 @@
-<style>
-  @media (max-width: 400px) {
-    #topcell {
-      padding-right: 20px !important;
-    }
-    #maincell {
-      padding-left:  20px !important;
-      padding-right: 20px !important;
-    }
-  }
-</style>
-<div style="width: 579px;max-width: 100%;"><table style="width: 100%;" cellpadding="0" cellspacing="0" border="0">{% if images.hero %}
-<tr>
-  <td style="vertical-align: middle;text-align: center;padding-right: 58px;" id="topcell"><img style="height: auto;width: auto;max-width: 100%;display: block;" src="{{images.hero.url}}"></img>
-  </td>
-</tr>
-{% endif %}
-<tr>
-  <td style="vertical-align: middle;text-align: left;padding-top: 54px;padding-left: 58px;padding-right: 58px;" id="maincell">{% if images.avatar.url %}
-  <img style="width: 130px;height: auto;max-width: 100%;border: 5px solid #E8E8E8;border-radius: 50%;margin-bottom: 27px;" width="130" src="{{ images.avatar.url }}"></img>
-  {% elsif images.header.url %}
-  <img style="height: auto;width: {{ images.header.width }}px;max-width: 100%;margin-bottom: 27px;" src="{{ images.header.url }}" width="{{ images.header.width }}"></img>
-  {% endif %}
-  <h1 style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 45px;line-height: 1.1;margin: 0;padding: 0;margin-bottom: 20px;font-weight: normal;">{{ texts.title }}</h1>
-  {% for text in texts.blocks %}
-  <p style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 14px;line-height: 1.5;margin: 0;padding: 0;margin-bottom: 15px;">{{ text }}</p>
-  {% if images.blocks and images.blocks[forloop.index0] %}
-  <img style="width: {{ images.blocks[forloop.index0].width }}px;height: auto;max-width: 100%;margin-bottom: 35px;" width="{{ images.blocks[forloop.index0].width }}" src="{{ images.blocks[forloop.index0].url }}"></img>
-  {% endif %}
-  {% endfor %}
-  {% if texts.link %}
-  <p style='margin-bottom: 50px;'>
-    <a style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 24.88px;line-height: 1.1;margin: 0;padding: 0;text-decoration: underline;" border="0" href="{{ link_url }}">{{ texts.link }} →</a>
-  </p>
-  {% endif %}
-  <p style='margin-bottom: 25px;'>
-    <a style="font-family: Tahoma, sans-serif;color: black;font-size: 12px;line-height: 1.1;margin: 0;padding: 0;text-decoration: none;" border="0" href="http://hell-o-baby.com"><img style="width: 90px;height: auto;max-width: 100%;" width="90" src="http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/logo2.png"></img>
-    </a>
-  </p>
-  <p style='margin-bottom: 22px;line-height: 10px;'>
-    <span style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 11px;line-height: 1.5;margin: 0;padding: 0;">©
-    <strong>Hello Baby LTD</strong>
-    </span>
-    <br>
-    <a style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 11px;line-height: 1.1;margin: 0;padding: 0;text-decoration: none;" border="0" href="http://hell-o-baby.com">hell-o-baby.com</a>
-  </p>
-  <p>
-    <a style="font-family: Tahoma, sans-serif;color: black;font-size: 12px;line-height: 1.1;margin: 0;padding: 0;text-decoration: none;" border="0" href="https://www.facebook.com/hellobabyalbum"><img style="width: 70px;height: auto;max-width: 100%;" width="70" src="http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/facebook.png"></img>
-    </a>
-  </p>
-  </td>
-</tr>
-</table>
-</div>
+<!DOCTYPE html>
+<html style='margin: 0;padding: 0;'>
+  <head>
+    <title>Шаблон LiquidJS</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    
+  </head>
+  <body style='margin: 0;padding: 0;'>
+    <style>
+      @media (max-width: 500px) {
+        #topcell {
+          padding-right: 20px !important;
+        }
+        #maincell {
+          padding-left:  20px !important;
+          padding-right: 20px !important;
+        }
+      }
+      @media (min-width: 501px) {
+        #topcell {
+          padding-right: 58px !important;
+        }
+        #maincell {
+          padding-left:  58px !important;
+          padding-right: 58px !important;
+        }
+      }
+    </style>
+    <div style="width: 579px;max-width: 100%;"><table style="width: 100%;" cellpadding="0" cellspacing="0" border="0">{% if images.hero %}
+    <tr>
+      <td style="vertical-align: middle;text-align: center;padding-right: 30px;" id="topcell"><img style="height: auto;width: auto;max-width: 100%;display: block;" src="{{images.hero.url}}"></img>
+      </td>
+    </tr>
+    {% endif %}
+    <tr>
+      <td style="vertical-align: middle;text-align: left;padding-top: 54px;padding-left: 0;padding-right: 0;" id="maincell">{% if images.avatar.url %}
+      <img style="width: 130px;height: auto;max-width: 100%;border: 5px solid #E8E8E8;border-radius: 50%;margin-bottom: 27px;" width="130" src="{{ images.avatar.url }}"></img>
+      {% elsif images.header.url %}
+      <img style="height: auto;width: {{ images.header.width }}px;max-width: 100%;margin-bottom: 27px;" src="{{ images.header.url }}" width="{{ images.header.width }}"></img>
+      {% endif %}
+      <h1 style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 45px;line-height: 1.1;margin: 0;padding: 0;margin-bottom: 20px;font-weight: normal;">{{ texts.title }}</h1>
+      {% for text in texts.blocks %}
+      <p style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 14px;line-height: 1.5;margin: 0;padding: 0;margin-bottom: 15px;">{{ text }}</p>
+      {% if images.blocks and images.blocks[forloop.index0] %}
+      <img style="width: {{ images.blocks[forloop.index0].width }}px;height: auto;max-width: 100%;margin-bottom: 35px;" width="{{ images.blocks[forloop.index0].width }}" src="{{ images.blocks[forloop.index0].url }}"></img>
+      {% endif %}
+      {% endfor %}
+      {% if texts.link %}
+      <p style='margin-bottom: 50px;'>
+        <a style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 24.88px;line-height: 1.1;margin: 0;padding: 0;text-decoration: underline;" border="0" href="{{ link_url }}">{{ texts.link }} →</a>
+      </p>
+      {% endif %}
+      <p style='margin-bottom: 25px;'>
+        <a style="font-family: Tahoma, sans-serif;color: black;font-size: 12px;line-height: 1.1;margin: 0;padding: 0;text-decoration: none;" border="0" href="http://hell-o-baby.com"><img style="width: 90px;height: auto;max-width: 100%;" width="90" src="http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/logo2.png"></img>
+        </a>
+      </p>
+      <p style='margin-bottom: 22px;line-height: 10px;'>
+        <span style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 11px;line-height: 1.5;margin: 0;padding: 0;">©
+        <strong>Hello Baby LTD</strong>
+        </span>
+        <br>
+        <a style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 11px;line-height: 1.1;margin: 0;padding: 0;text-decoration: none;" border="0" href="http://hell-o-baby.com">hell-o-baby.com</a>
+      </p>
+      <p>
+        <a style="font-family: Tahoma, sans-serif;color: black;font-size: 12px;line-height: 1.1;margin: 0;padding: 0;text-decoration: none;" border="0" href="https://www.facebook.com/hellobabyalbum"><img style="width: 70px;height: auto;max-width: 100%;" width="70" src="http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/facebook.png"></img>
+        </a>
+      </p>
+      </td>
+    </tr>
+    </table>
+    </div>
+    
+  </body>
+</html>
