@@ -39,7 +39,7 @@
         {% elsif top_image.mode == 'static_small' %}
         <img style="height: auto;width: {{ top_image.width }}px;max-width: 100%;margin-bottom: 27px;" src="{{ top_image.url }}" width="{{ top_image.width }}" alt="{{ top_image.text[language] }}"></img>
         {% endif %}
-        <h1 style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 45px;line-height: 1.1;margin: 0;padding: 0;margin-bottom: 20px;font-weight: normal;">{{ subject.text[language] }}</h1>
+        <h1 style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 45px;line-height: 1.1;margin: 0;padding: 0;margin-bottom: 20px;font-weight: normal;">{{ caption.text[language] }}</h1>
         {% for block in blocks %}
         <p style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 14px;line-height: 1.5;margin: 0;padding: 0;margin-bottom: 15px;">{{ block.text[language] }}</p>
         {% if block.image.url %}
@@ -79,7 +79,7 @@
       
         result = Liquid.parse($('#liquid_body')[0].innerHTML).render({
           "language": "en",
-          "subject": {
+          "caption": {
             "text": {
               "en": "New badge for Harrison!"
             }
