@@ -1,0 +1,24 @@
+;;;
+"name":             "Английский",
+"group":            "Письмо про апдейт"
+;;;
+
+= component 'pages/template_1_static_update',
+  content: { hero_image_url:   custom_image_url('welcome_to_hello_baby.png'),
+             hero_image_width: image_width('welcome_to_hello_baby.png') / 2,
+             title_text:       'Hello!',
+             main_text:        'We&nbsp;made a&nbsp;great update of&nbsp;our iPhone app and website for your baby! Enjoy it&nbsp;and never miss any important moments.',
+             link_text:        'Your baby album',
+             link_url:         'http://hell-o-baby.com',
+             blocks: [ { image_url:   custom_image_url('stickers.png'),
+                         image_width: image_width('stickers.png') / 2,
+                         text:        'Stickers. Add beautiful texts and stickers to&nbsp;your photos, to&nbsp;make them even better! Over 250 cool hand-crafted stickers.'},
+                       { image_url:   custom_image_url('measurements.png'),
+                         image_width: image_width('measurements.png') / 2,
+                         text:        "Measurements. Add baby&rsquo;s weight and height and track them on&nbsp;graphs! Now you can delete or&nbsp;change old measurements."},
+                       { image_url:   custom_image_url('postcards.png'),
+                         image_width: image_width('postcards.png') / 2,
+                         text:        'Postcards. Collect&amp;enjoy beautiful animated postcards with you and your baby!'},
+                       { image_url:   custom_image_url('video_stories.png'),
+                         image_width: image_width('video_stories.png') / 2,
+                         text:        'Video stories. Keep collectBing moments, and they will appear in&nbsp;a&nbsp;stunning video stories!'}]}

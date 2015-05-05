@@ -3,15 +3,15 @@
 "group":            "Шаблон бэкенда"
 ;;;
 
-= component 'pages/template_1',
+= component 'pages/template_1_liquid',
   content: { texts: { title: 'Hi there!',
                        link:  'Get welcome postcard',
                        blocks: [ 'Welcome to the best place to keep baby’s big moments! Add content, use key moments and never lose baby impressions! Use our appor web album.',
                                  'Use specialized services: Measurements, Video stories, Stickers, Postcards, Daily snapshot and Printed albums. Enjoy your parenthood!' ]},
              images: { hero:   { url: custom_image_url('welcome_to_hello_baby.png') },
-                       blocks: [ { url:   custom_image_url('post_types.png'), 
+                       blocks: [ { url:   custom_image_url('post_types.png'),
                                    width: image_width('post_types.png') / 2 },
-                                 { url:   custom_image_url('services.png'), 
+                                 { url:   custom_image_url('services.png'),
                                    width: image_width('services.png') / 2} ] },
              link_url: 'http://hell-o-baby.com/foo?bar=baz' }
-             
+

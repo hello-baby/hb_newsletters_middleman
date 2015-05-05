@@ -1,0 +1,145 @@
+- content_for :head do
+  :css
+    @media (max-width: 500px) {
+      #topcell {
+        padding-right: 20px !important;
+      }
+      #maincell {
+        padding-left:  20px !important;
+        padding-right: 20px !important;
+      }
+    }
+    @media (min-width: 501px) {
+      #topcell {
+        padding-right: 58px !important;
+      }
+      #maincell {
+        padding-left:  58px !important;
+        padding-right: 58px !important;
+      }
+    }
+
+- padding = '0px'
+
+-# Root container
+= component :element, tag: :div,
+                      style_obj: {  width:     "#{180 + 406 + 20 + 12}px",
+                                    max_width: '100%'} do
+
+  -# Main table
+  = component :table,
+              style_obj: { width: '100%' } do
+
+
+    -# Top cell with hero image
+
+    = component :row_cell, attrs:     { id: 'topcell' },
+                           style_obj: { padding_right: '30px' } do
+
+
+      = component :img_auto,  src:       options[:content][:hero_image_url],
+                              px_width:  options[:content][:hero_image_width],
+                              style_obj: { max_width: '100%',
+                                           height:    'auto',
+                                           display:   'block' }
+
+
+    -# Main content cell
+    = component :row_cell,  attrs:     { id: 'maincell' },
+                            halign:    :left,
+                            style_obj: {  padding_top:   '54px',
+                                          padding_left:  padding,
+                                          padding_right: padding } do
+
+      -# Title
+      = component :text, tag:       :h1,
+                         yield:     options[:content][:title_text],
+                         style_obj: { color:         '#3c3c3c',
+                                      font_size:     '45px',
+                                      margin_bottom: '20px',
+                                      font_weight:   'normal' }
+
+      -# Text
+      = component :text2, yield:     options[:content][:main_text],
+                          style_obj: {  margin_bottom: '35px',
+                                        max_width:     '450px'  }
+
+
+      -# Content blocks
+      = component :table,
+                  style_obj: { width: '100%' } do
+
+        - options[:content][:blocks].each_with_index do |block, index|
+
+          %tr
+
+            -# Image
+            = component :element, tag:       :td,
+                                  attrs:     { width:          block[:image_width] },
+                                  style_obj: { width:          "#{block[:image_width]}px",
+                                               text_align:     'center',
+                                               vertical_align: 'middle' } do
+
+
+              = component :img_auto, src:      block[:image_url],
+                                     px_width: block[:image_width]
+
+
+            -# Horizontal spacer
+            = component :element, tag:       :td,
+                                  attrs:     { width: '22' },
+                                  style_obj: { width: "22px" }
+
+            -# Text
+            = component :element, tag:       :td,
+                                  style_obj: { text_align:     'left',
+                                               vertical_align: 'middle' } do
+
+              = component :text2, yield:     block[:text],
+                                  style_obj: { font_size: '12px' }
+
+          -# Vertical spacer
+          %tr
+            = component :element, tag:       :td,
+                                  attrs:     { colspan: 3 },
+                                  style_obj: { height: "25px" }
+
+
+
+      -# Main link
+      %p{ style: style_string(margin_bottom:   '50px') }
+        = component :a, href:        options[:content][:link_url],
+                        yield:     "#{options[:content][:link_text]} →",
+                        style_obj: { font_size:       '24.88px',
+                                     text_decoration: 'underline',
+                                     color:           '#3c3c3c' }
+
+      -# Hell'o Baby logo
+      %p{ style: style_string(margin_bottom:   '25px') }
+        = component :a, href: 'http://hell-o-baby.com' do
+          = component :img_auto, src:      custom_image_url('logo2.png'),
+                                   px_width: image_width('logo2.png') / 2,
+                                   style_obj: { }
+
+      -# Hell'o Baby plaintext link
+      %p{ style: style_string(margin_bottom:   '22px',
+                              line_height:     '10px') }
+        = component :text2, tag:       :span,
+                            style_obj: { font_size: '11px',
+                            color:     '#3c3c3c' } do
+          ©
+          %strong Hello Baby LTD
+
+        %br
+
+        = component :a, href:      'http://hell-o-baby.com',
+                          yield:     'hell-o-baby.com',
+                          style_obj: { font_size: '11px',
+                                       color:     '#3c3c3c' }
+
+      -# Facebook link
+      %p
+        = component :a, href: 'https://www.facebook.com/hellobabyalbum' do
+          = component :img_auto, src:      custom_image_url('facebook.png'),
+                                   px_width: image_width('facebook.png') / 2,
+                                   style_obj: { }

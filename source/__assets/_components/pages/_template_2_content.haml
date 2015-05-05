@@ -22,8 +22,8 @@
 
 -# Root container
 = component :element, tag: :div,
-                        style_obj: {  width:     '579px',
-                                      max_width: '100%'} do
+                      style_obj: {  width:     '579px',
+                                    max_width: '100%'} do
 
   -# Main table
   = component :table,
@@ -31,16 +31,17 @@
 
 
     -# Top cell with hero image
-    {% if images.hero %}
+    {% if top_image.mode == 'static_big' %}
 
     = component :row_cell, attrs:     { id: 'topcell' },
-                             style_obj: { padding_right: '30px' } do
+                           style_obj: { padding_right: '30px' } do
 
 
-      = component :img_auto, src: "{{images.hero.url}}",
-                                    style_obj: { max_width: '100%',
-                                                 height:    'auto',
-                                                 display:   'block' }
+      = component :img_auto,  src: "{{ top_image.url }}",
+                              attrs: { alt: "{{ top_image.text[language] }}" },
+                              style_obj: { max_width: '100%',
+                                           height:    'auto',
+                                           display:   'block' }
 
     {% endif %}
 
@@ -53,29 +54,31 @@
                                           padding_right: padding } do
 
 
-      {% if images.avatar.url %}
+      {% if top_image.mode == 'dynamic' %}
 
 
-      = component :img_auto, src:      '{{ images.avatar.url }}',
-                             px_width: 130,
+      = component :img_auto, src:       '{{ top_image.url }}',
+                             attrs:     { alt: "{{ top_image.text[language] }}" },
+                             px_width:  130,
                              style_obj: { border:        '5px solid #E8E8E8',
                                           border_radius: '50%',
                                           margin_bottom: '27px' }
 
 
-      {% elsif images.header.url %}
+      {% elsif top_image.mode == 'static_small' %}
 
 
-      = component :img_auto, src:       '{{ images.header.url }}',
-                             attrs:     { width: '{{ images.header.width }}'},
+      = component :img_auto, src:       '{{ top_image.url }}',
+                             attrs:     { width: '{{ top_image.width }}',
+                                          alt: "{{ top_image.text[language] }}" },
                              style_obj: { margin_bottom: '27px',
-                                          width:         '{{ images.header.width }}px' }
+                                          width:         '{{ top_image.width }}px' }
 
       {% endif %}
 
       -# Title
       = component :text, tag:       :h1,
-                           yield:     "{{ texts.title }}",
+                           yield:     "{{ caption.text[language] }}",
                            style_obj: { color:         '#3c3c3c',
                                         font_size:     '45px',
                                         margin_bottom: '20px',
@@ -83,17 +86,18 @@
 
 
       -# Content blocks
-      {% for text in texts.blocks %}
+      {% for block in blocks %}
 
       -# Text
-      = component :text2, yield:     '{{ text }}',
+      = component :text2, yield:     '{{ block.text[language] }}',
                           style_obj: { margin_bottom: '15px' }
 
 
       -# Image
-      {% if images.blocks and images.blocks[forloop.index0] %}
-      = component :img_auto, src:      '{{ images.blocks[forloop.index0].url }}',
-                             px_width: '{{ images.blocks[forloop.index0].width }}',
+      {% if block.image.url %}
+      = component :img_auto, src:       '{{ block.image.url }}',
+                             px_width:  '{{ block.image.width }}',
+                             attrs:     { alt: "{{ block.image.text[language] }}" },
                              style_obj: { margin_bottom: '35px' }
       {% endif %}
 
@@ -101,10 +105,10 @@
 
 
       -# Main link
-      {% if texts.link %}
+      {% if link.text and link.url %}
       %p{ style: style_string(margin_bottom:   '50px') }
-        = component :a, href:      '{{ link_url }}',
-                          yield:     "{{ texts.link }} →",
+        = component :a, href:      '{{ link.url }}',
+                          yield:     "{{ link.text[language] }} →",
                           style_obj: { font_size:       '24.88px',
                                        text_decoration: 'underline',
                                        color:           '#3c3c3c' }

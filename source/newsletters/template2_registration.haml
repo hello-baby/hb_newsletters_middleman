@@ -1,0 +1,24 @@
+;;;
+"name":             "Регистрация (крупная картинка)",
+"group":            "Шаблон бэкенда 2"
+;;;
+
+= component  'pages/template_1_liquid',
+  component: 'template_2_content',
+  content: {  language:  'en',
+              caption:   {  text: { en: "Hi there!" } },
+              top_image: {  url: custom_image_url('welcome_to_hello_baby.png'),
+                            width: image_width('welcome_to_hello_baby.png') / 2,
+                            mode:  "static_big",
+                            text:  { en: "Top image alt text" }},
+              blocks: [ { text:  { en:    "Welcome to the best place to keep baby’s big moments! Add content, use key moments and never lose baby impressions! Use our appor web album." },
+                          image: { url:   custom_image_url('post_types.png'),
+                                   width: image_width('post_types.png') / 2,
+                                   text:  { en: "asdf" } } },
+                        { text:  { en:    "Use specialized services: Measurements, Video stories, Stickers, Postcards, Daily snapshot and Printed albums. Enjoy your parenthood!" },
+                          image: { url:   custom_image_url('services.png'),
+                                   width: image_width('services.png') / 2,
+                                   text:  { en: "asdf" } } }],
+              link: { text: { en: "Get welcome postcard" },
+                      url:  "http://hell-o-baby.com/foo?bar=baz" } }
+

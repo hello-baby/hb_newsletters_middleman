@@ -1,0 +1,15 @@
+;;;
+"name":             "Бэдж за три заметки (маленькая картинка, без ссылки)",
+"group":            "Шаблон бэкенда 2"
+;;;
+
+= component 'pages/template_1_liquid',
+  component: 'template_2_content',
+  content: {  language:  'en',
+              caption:   {  text: { en: "New badge for Harrison!" } },
+              blocks:    [{ text: { en: "Maximilian made more than 3 text notes.<br>So, there is a new badge – Energizer!<br><br>"}}],
+              top_image: {  url: custom_image_url('badge_three_notes.png'),
+                            width: image_width('badge_three_notes.png') / 2,
+                            mode:  "static_small",
+                            text:  { en: "Top image alt text" }}}
+

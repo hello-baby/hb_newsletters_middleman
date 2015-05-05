@@ -1,0 +1,24 @@
+;;;
+"name":             "Русский",
+"group":            "Письмо про апдейт"
+;;;
+
+= component 'pages/template_1_static_update',
+  content: { hero_image_url:   custom_image_url('welcome_to_hello_baby.png'),
+             hero_image_width: image_width('welcome_to_hello_baby.png') / 2,
+             title_text:       'Привет!',
+             main_text:        'Мы&nbsp;рады сообщить о&nbsp;запуске международного сервиса Hell&rsquo;o&nbsp;Baby на&nbsp;iPhone и&nbsp;веб-сайте, чтобы сохранить лучшие моменты первых лет вашего малыша!',
+             link_text:        'Создайте альбом малыша',
+             link_url:         'http://hell-o-baby.com',
+             blocks: [ { image_url:   custom_image_url('stickers.png'),
+                         image_width: image_width('stickers.png') / 2,
+                         text:        'Стикеры. Добавьте потрясающие стикеры к&nbsp;вашим фото и&nbsp;сделайте их&nbsp;еще лучше! Выбирайте из&nbsp;более чем 250&nbsp;стикеров, многие из&nbsp;которых доступны бесплатно.'},
+                       { image_url:   custom_image_url('measurements.png'),
+                         image_width: image_width('measurements.png') / 2,
+                         text:        'Измерения. Добавляйте рост и&nbsp;вес вашего малыша, чтобы отслеживать динамику его развития. Теперь измерения малыша всегда под рукой!'},
+                       { image_url:   custom_image_url('postcards.png'),
+                         image_width: image_width('postcards.png') / 2,
+                         text:        'Открытки. Получайте прекрасные анимированные открытки с&nbsp;участием своего малыша и&nbsp;делаитесь ими с&nbsp;родственниками!'},
+                       { image_url:   custom_image_url('video_stories.png'),
+                         image_width: image_width('video_stories.png') / 2,
+                         text:        'Видеоистории. Ваш контент распределяется и&nbsp;хранится так, чтобы в&nbsp;будущем, когда малыш подрастет, автоматически подготовить его персональную видеоисторию и&nbsp;печатный альбом!'}]}
