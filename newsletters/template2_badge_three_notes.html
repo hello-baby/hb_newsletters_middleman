@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html style='margin: 0;padding: 0;'>
   <head>
-    <title>Приглашение существующего пользователя (аватар)</title>
+    <title>Бэдж за три заметки (маленькая картинка, без ссылки)</title>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     
   </head>
@@ -27,28 +27,28 @@
           }
         }
       </style>
-      <div style="width: 579px;max-width: 100%;"><table style="width: 100%;" cellpadding="0" cellspacing="0" border="0">{% if images.hero %}
+      <div style="width: 579px;max-width: 100%;"><table style="width: 100%;" cellpadding="0" cellspacing="0" border="0">{% if top_image.mode == 'static_big' %}
       <tr>
-        <td style="vertical-align: middle;text-align: center;padding-right: 30px;" id="topcell"><img style="height: auto;width: auto;max-width: 100%;display: block;" src="{{images.hero.url}}"></img>
+        <td style="vertical-align: middle;text-align: center;padding-right: 30px;" id="topcell"><img style="height: auto;width: auto;max-width: 100%;display: block;" src="{{ top_image.url }}" alt="top_image.text[language]"></img>
         </td>
       </tr>
       {% endif %}
       <tr>
-        <td style="vertical-align: middle;text-align: left;padding-top: 54px;padding-left: 0;padding-right: 0;" id="maincell">{% if images.avatar.url %}
-        <img style="width: 130px;height: auto;max-width: 100%;border: 5px solid #E8E8E8;border-radius: 50%;margin-bottom: 27px;" width="130" src="{{ images.avatar.url }}"></img>
-        {% elsif images.header.url %}
-        <img style="height: auto;width: {{ images.header.width }}px;max-width: 100%;margin-bottom: 27px;" src="{{ images.header.url }}" width="{{ images.header.width }}"></img>
+        <td style="vertical-align: middle;text-align: left;padding-top: 54px;padding-left: 0;padding-right: 0;" id="maincell">{% if top_image.mode == 'dynamic' %}
+        <img style="width: 130px;height: auto;max-width: 100%;border: 5px solid #E8E8E8;border-radius: 50%;margin-bottom: 27px;" width="130" src="{{ top_image.url }}" alt="top_image.text[language]"></img>
+        {% elsif top_image.mode == 'static_small' %}
+        <img style="height: auto;width: {{ top_image.width }}px;max-width: 100%;margin-bottom: 27px;" src="{{ top_image.url }}" width="{{ top_image.width }}" alt="top_image.text[language]"></img>
         {% endif %}
-        <h1 style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 45px;line-height: 1.1;margin: 0;padding: 0;margin-bottom: 20px;font-weight: normal;">{{ texts.title }}</h1>
-        {% for text in texts.blocks %}
-        <p style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 14px;line-height: 1.5;margin: 0;padding: 0;margin-bottom: 15px;">{{ text }}</p>
-        {% if images.blocks and images.blocks[forloop.index0] %}
-        <img style="width: {{ images.blocks[forloop.index0].width }}px;height: auto;max-width: 100%;margin-bottom: 35px;" width="{{ images.blocks[forloop.index0].width }}" src="{{ images.blocks[forloop.index0].url }}"></img>
+        <h1 style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 45px;line-height: 1.1;margin: 0;padding: 0;margin-bottom: 20px;font-weight: normal;">{{ subject.text[language] }}</h1>
+        {% for block in blocks %}
+        <p style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 14px;line-height: 1.5;margin: 0;padding: 0;margin-bottom: 15px;">{{ block.text[language] }}</p>
+        {% if block.image.url %}
+        <img style="width: {{ block.image.width }}px;height: auto;max-width: 100%;margin-bottom: 35px;" width="{{ block.image.width }}" src="{{ block.image.url }}" alt="block.image.text[language]"></img>
         {% endif %}
         {% endfor %}
-        {% if texts.link %}
+        {% if link.text and link.url %}
         <p style='margin-bottom: 50px;'>
-          <a style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 24.88px;line-height: 1.1;margin: 0;padding: 0;text-decoration: underline;" border="0" href="{{ link_url }}">{{ texts.link }} →</a>
+          <a style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 24.88px;line-height: 1.1;margin: 0;padding: 0;text-decoration: underline;" border="0" href="{{ link.url }}">{{ link.text[language] }} →</a>
         </p>
         {% endif %}
         <p style='margin-bottom: 25px;'>
@@ -78,17 +78,27 @@
         var result;
       
         result = Liquid.parse($('#liquid_body')[0].innerHTML).render({
-          "texts": {
-            "title": "New baby.",
-            "link": "Baby album",
-            "blocks": ["Margarita has invited you to be Maximilian‘s father on Hell’o Baby. Now you can add new memories of baby together!"]
-          },
-          "images": {
-            "avatar": {
-              "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/baby_avatar.jpg"
+          "language": "en",
+          "subject": {
+            "text": {
+              "en": "New badge for Harrison!"
             }
           },
-          "link_url": "http://hell-o-baby.com/foo?bar=baz"
+          "blocks": [
+            {
+              "text": {
+                "en": "Maximilian made more than 3 text notes.\u003cbr\u003eSo, there is a new badge – Energizer!\u003cbr\u003e\u003cbr\u003e"
+              }
+            }
+          ],
+          "top_image": {
+            "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/badge_three_notes.png",
+            "width": 163,
+            "mode": "static_small",
+            "text": {
+              "en": "Top image alt text"
+            }
+          }
         });
       
         $('body').append($(result));
