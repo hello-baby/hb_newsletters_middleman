@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html style='margin: 0;padding: 0;'>
+  <head>
+    <title>Push</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    
+  </head>
+  <body style='margin: 0;padding: 0;'>
+    <script id='liquid_body' type='text/liquid'>
+      <div style="width: 220px;background-color: white;border-radius: 4px;text-align: center;"><div style="padding: 15px 15px 20px;"><div style="font-family: PT Sans;font-size: 16px;font-weight: bold;margin-bottoM: 5px;">Hell'o Baby</div>
+      <div style="font-family: PT Sans;font-size: 13px;">{{ paragraph.text[language] }}</div>
+      </div>
+      <div style="line-height: 38px;font-family: PT Sans;color: #007AFF;font-size: 13px;border-top: 1px solid lightgrey;">Ok</div>
+      </div>
+    </script>
+    <script src="../__assets/javascripts/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="../__assets/javascripts/liquid.js/dist/liquid.min.js" type="text/javascript"></script>
+    <script>
+      (function() {
+        var result;
+      
+        result = Liquid.parse($('#liquid_body')[0].innerHTML).render({
+          "language": "en",
+          "paragraph": {
+            "text": {
+              "en": "Margarita has invited you to be Maximilian’s father on Hell’o Baby. Now you can add new memories of baby together!"
+            }
+          }
+        });
+      
+        $('body').append($(result));
+      
+      }).call(this);
+    </script>
+  </body>
+</html>

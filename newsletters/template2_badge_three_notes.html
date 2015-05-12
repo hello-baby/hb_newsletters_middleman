@@ -27,23 +27,23 @@
           }
         }
       </style>
-      <div style="width: 579px;max-width: 100%;"><table style="width: 100%;" cellpadding="0" cellspacing="0" border="0">{% if top_image.mode == 'static_big' %}
+      <div style="background-color: white;width: 579px;max-width: 100%;"><table style="width: 100%;" cellpadding="0" cellspacing="0" border="0">{% if top_image.mode == 'static_big' %}
       <tr>
-        <td style="vertical-align: middle;text-align: center;padding-right: 30px;" id="topcell"><img style="height: auto;width: auto;max-width: 100%;display: block;" src="{{ top_image.url }}" alt="{{ top_image.text[language] }}"></img>
+        <td style="vertical-align: middle;text-align: center;padding-right: 30px;" id="topcell"><img style="height: auto;width: auto;max-width: 100%;display: block;" src="{{ top_image.url }}" alt="{{ top_image.alt }}"></img>
         </td>
       </tr>
       {% endif %}
       <tr>
         <td style="vertical-align: middle;text-align: left;padding-top: 54px;padding-left: 0;padding-right: 0;" id="maincell">{% if top_image.mode == 'dynamic' %}
-        <img style="width: 130px;height: auto;max-width: 100%;border: 5px solid #E8E8E8;border-radius: 50%;margin-bottom: 27px;" width="130" src="{{ top_image.url }}" alt="{{ top_image.text[language] }}"></img>
+        <img style="width: 130px;height: auto;max-width: 100%;border: 5px solid #E8E8E8;border-radius: 50%;margin-bottom: 27px;" width="130" src="{{ top_image.url }}" alt="{{ top_image.alt }}"></img>
         {% elsif top_image.mode == 'static_small' %}
-        <img style="height: auto;width: {{ top_image.width }}px;max-width: 100%;margin-bottom: 27px;" src="{{ top_image.url }}" width="{{ top_image.width }}" alt="{{ top_image.text[language] }}"></img>
+        <img style="height: auto;width: {{ top_image.width }}px;max-width: 100%;margin-bottom: 27px;" src="{{ top_image.url }}" width="{{ top_image.width }}" alt="{{ top_image.alt }}"></img>
         {% endif %}
         <h1 style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 45px;line-height: 1.1;margin: 0;padding: 0;margin-bottom: 20px;font-weight: normal;">{{ caption.text[language] }}</h1>
         {% for block in blocks %}
         <p style="font-family: Tahoma, sans-serif;color: #3c3c3c;font-size: 14px;line-height: 1.5;margin: 0;padding: 0;margin-bottom: 15px;">{{ block.text[language] }}</p>
         {% if block.image.url %}
-        <img style="width: {{ block.image.width }}px;height: auto;max-width: 100%;margin-bottom: 35px;" width="{{ block.image.width }}" src="{{ block.image.url }}" alt="{{ block.image.text[language] }}"></img>
+        <img style="width: {{ block.image.width }}px;height: auto;max-width: 100%;margin-bottom: 35px;" width="{{ block.image.width }}" src="{{ block.image.url }}" alt="{{ block.image.alt }}"></img>
         {% endif %}
         {% endfor %}
         {% if link.text and link.url %}
@@ -52,7 +52,7 @@
         </p>
         {% endif %}
         <p style='margin-bottom: 25px;'>
-          <a style="font-family: Tahoma, sans-serif;color: black;font-size: 12px;line-height: 1.1;margin: 0;padding: 0;text-decoration: none;" border="0" href="http://hell-o-baby.com"><img style="width: 90px;height: auto;max-width: 100%;" width="90" src="http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/logo2.png"></img>
+          <a style="font-family: Tahoma, sans-serif;color: black;font-size: 12px;line-height: 1.1;margin: 0;padding: 0;text-decoration: none;" border="0" href="http://hell-o-baby.com"><img style="width: 90px;height: auto;max-width: 100%;margin-top: 20px;" width="90" src="http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/logo2.png"></img>
           </a>
         </p>
         <p style='margin-bottom: 22px;line-height: 10px;'>
