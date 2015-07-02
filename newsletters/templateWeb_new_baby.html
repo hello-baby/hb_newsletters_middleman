@@ -16,10 +16,6 @@
       <div style="text-align: left;vertical-align: middle;display: table-cell;padding: 0 46px;box-sizing: content-box;"><p style="font-family: Appetite;font-size: 22px;font-weight: bold;margin: 0 0 5px 0;color: {{ title.color }};">{{ title.text[language] }}</p>
       <p style="font-family: PT Sans;font-size: 11px;margin: 0 0 5px 0;color: {{ paragraph.color }};">{{ paragraph.text[language] }}</p>
       </div>
-      {% if icon.url %}
-      <div style="width: 81px;text-align: left;vertical-align: middle;display: table-cell;"><img style="width: {{ icon.width }}px;height: auto;max-width: 100%;" width="{{ icon.width }}" src="{{ icon.url }}" alt="{{ icon.alt }}"></img>
-      </div>
-      {% endif %}
       </div>
     </script>
     <script src="../__assets/javascripts/jquery/dist/jquery.min.js" type="text/javascript"></script>
@@ -50,14 +46,6 @@
               "en": "Margarita has invited you to be Maximilian’s father on Hell’o Baby. Now you can add new memories of baby together!"
             },
             "color": "#424242"
-          },
-          "icon": {
-            "url": "http://hello-baby.github.io/hb_newsletters_middleman/__assets/images/book_icon.png",
-            "width": 51,
-            "mode": "static",
-            "text": {
-              "en": "Icon alt text"
-            }
           }
         });
       
